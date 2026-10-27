@@ -38,3 +38,9 @@ Run outshell:
 ```shell
 .\bin\main.exe
 ```
+
+PLEASE MAKE SURE **NOT** TO RUN:
+```shell
+make all | .\bin\main.exe
+```
+It causes the program to enter an infinite while loop. 
