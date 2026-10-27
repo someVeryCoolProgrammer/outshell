@@ -12,7 +12,7 @@ outshell is an open-source shell designed for another project I plan on making: 
 
 # About
 
-outshell is an open-source shell that values user privacy. More about open-source [here](https://opensource.com/resources/what-open-source). outshell is currently **INDEVELOPMENT**. There are a lot of features to be added to outshell.
+outshell is an open-source shell that values user privacy. More about open-source [here](https://opensource.com/resources/what-open-source). outshell is currently **INDEVELOPMENT**. There are a lot of features to be added to outshell. Unix based operating systems will **NEVER** be supported.
 
 ---
 # Getting Started
@@ -36,11 +36,11 @@ make all
 
 Run outshell:  
 ```shell
-.\bin\main.exe
+.\bin\outshell.exe
 ```
 
 PLEASE MAKE SURE **NOT** TO RUN:
 ```shell
-make all | .\bin\main.exe
+make all | .\bin\outshell.exe
 ```
 It causes the program to enter an infinite while loop. 

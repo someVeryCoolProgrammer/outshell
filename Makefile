@@ -1,5 +1,10 @@
-CFLAGS: -Wall
+CC = gcc
+CFLAGS: -Wall -Wextra 
 
 all:
-	gcc $(CFLAGS) src\main.c -o bin\main.exe
-	
+	$(CC) $(CFLAGS) src\main.c src\getCurrentDir.c src\commands.c -o bin\outshell.exe
+
+clean:
+	rm C:\outshell\bin\outshell.exe
+	cd outshell
+	ls
