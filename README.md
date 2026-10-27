@@ -14,6 +14,8 @@ outshell is an open-source shell designed for another project I plan on making: 
 
 outshell is an open-source shell that values user privacy. More about open-source [here](https://opensource.com/resources/what-open-source). outshell is currently **INDEVELOPMENT**. There are a lot of features to be added to outshell. Unix based operating systems will **NEVER** be supported.
 
+[![outshell's Version](https://img.shields.io/github/v/release/someVeryCoolProgrammer/outshell)](https://github.com/someVeryCoolProgrammer/outshell/releases/latest)
+
 ---
 # Getting Started
 
