@@ -23,6 +23,8 @@ int main(void)
             help();
         } else if(strcmp(userInput, "cd") == 0) {
             cd();
+        } else if(strcmp(userInput, "echo") == 0) {
+            echo();
         } else {
             printf("\nInvalid Input!\n");
         }    

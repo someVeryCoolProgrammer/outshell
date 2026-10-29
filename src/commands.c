@@ -34,6 +34,8 @@ void help(void)
     printf("\npwd: Gets the current direcory you're in\n");
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
+    printf("cd: Change current directory\n");
+    printf("echo: Print something to the console (It's like 'prinf' in C)");
 }
 
 int cd(void)
@@ -58,4 +60,14 @@ int cd(void)
     }
 #endif
     return 0;
+}
+
+void echo (void)
+{
+    char buff[4096];
+    
+    printf("\nEnter something you would like to print (to the console): ");
+    scanf("%4095s", &buff);
+
+    printf("\nYou said: '%s'!\n", buff);
 }

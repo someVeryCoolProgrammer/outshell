@@ -1,3 +1,14 @@
+# 29th October 2026 (major update)
+
+## 1.0.0
+
+# Commands
+- echo
+- quit
+- cd
+- pwd
+- help
+
 # 27th October 2026 (bug fix)
 
 ## 0.0.1
