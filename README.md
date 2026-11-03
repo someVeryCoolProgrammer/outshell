@@ -23,12 +23,17 @@ First, you need to install make. Make can be installed by the link [here](https:
 
 Clone outshell:
 ```shell
-git clone https://someVeryCoolProgrammer/outshell.git
+git clone https://github.com/someVeryCoolProgrammer/outshell.git
 ```
 
 Switch to outshell's directory:
 ```shell
 cd outshell
+```
+
+Make bin directory:
+```shell
+mkdir bin
 ```
 
 Compile outshell:
@@ -45,6 +50,7 @@ PLEASE MAKE SURE **NOT** TO RUN:
 ```shell
 make all | .\bin\outshell.exe
 ```
+
 It causes the program to enter an infinite while loop.
 
 Thank you for using outshell ❤️

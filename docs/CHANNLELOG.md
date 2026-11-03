@@ -1,3 +1,8 @@
+# 3/11/'26 (Bug Fix)
+
+- Fixed readme download bug
+- Fixed cd command
+
 # 29th October 2026 (major update)
 
 ## 1.0.0

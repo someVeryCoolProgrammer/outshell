@@ -1,9 +1,9 @@
 #ifdef _WIN32
     #include <stdio.h>
-    #include <wchar.h>
     #include <windows.h>
     #include "..\include\commands.h"
     #include "..\include\getCurrentDir.h"
+    #include "..\include\prompt.h"
 #else
     printf("Unix based operating systems not supported");
 #endif
@@ -35,28 +35,27 @@ void help(void)
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
     printf("cd: Change current directory\n");
-    printf("echo: Print something to the console (It's like 'prinf' in C)");
+    printf("echo: Print something to console\n"); 
 }
 
 int cd(void)
 {
 #ifdef _WIN32
-    wchar_t filePath[4096];
+    char filePath[4096];
     char path[4096];
 
-    if(getCurrentDir(path, sizeof(path))) {
-        printf("\nFiled to get current wokring directory :(\n");
-        return 1;
+    if(SetCurrentDirectoryA){
+        printf("\nEnter a file path: ");
+        scanf(" %4094s", &filePath);
+         
+        SetCurrentDirectoryA(filePath);
+        printf(L"\n>> Switched to '%s'\n", filePath);
+        return 0;
     }
 
     else {
-        printf("\nEnter a file path: ");
-        scanf(" %4094ls", &filePath);
-        
-        SetCurrentDirectoryW(filePath);
-        wprintf(L"\n%ls\n", filePath);
-        wprintf(L"\n>> Switched to '%ls'\n", filePath);
-
+        printf("Failed to switch to: %s", filePath);
+        return 1;
     }
 #endif
     return 0;
@@ -69,5 +68,5 @@ void echo (void)
     printf("\nEnter something you would like to print (to the console): ");
     scanf("%4095s", &buff);
 
-    printf("\nYou said: '%s'!\n", buff);
+    printf("\n%s\n", buff);
 }
