@@ -2,13 +2,13 @@
 #include <string.h>
 
 #ifdef _WIN32
-#include <windows.h>
-#include "..\include\getCurrentDir.h"
+    #include <windows.h>
+    #include "..\include\getCurrentDir.h"
 #else
-printf("Unix based operating systems not supported.");
+    printf("Unix based operating systems not supported.");
 #endif
 
-int getCurrentDir(char *path, size_t size)
+int getCurrentDir (char *path, size_t size)
 {
 #ifdef _WIN32
     const DWORD len = GetCurrentDirectoryA(4096, path);
@@ -16,7 +16,6 @@ int getCurrentDir(char *path, size_t size)
     if (len  == 0 || len > 4096) {
         return 1;
     }
-
 #endif
     return 0;
 }

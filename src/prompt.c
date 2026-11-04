@@ -3,21 +3,20 @@
 #include "..\include\prompt.h"
 
 #ifdef _WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
-int prompt(void)
+int prompt (void)
 {
 #ifdef _WIN32
     char path[4096];
 
-    if(getCurrentDir(path, sizeof(path))) {
-        printf("\nFailed to get current working directory :(\n");
-        return 1;
-    } else {
-        printf("\noutshell %s > ", path);
-    }
-    
-#endif
-    return 0;
+        if (getCurrentDir(path, sizeof(path))) {
+            printf("\nFailed to get current working directory :(\n");
+            return 1;
+        } else {
+        printf("\noutshell %s> ", path);
+            return 0;
+        }
+#endif 
 }

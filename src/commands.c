@@ -8,7 +8,7 @@
     printf("Unix based operating systems not supported");
 #endif
 
-int pwd(void)
+int pwd (void)
 {
 #ifdef _WIN32
     char path[4096];
@@ -19,37 +19,39 @@ int pwd(void)
     }
     else {
         printf("\n>> %s\n", path);
+        return 0;
     }
-#endif 
+#endif
     return 0;
 }
 
-void quit(void) 
+void quit (void) 
 {
     printf("Goodbye\n");
 }
 
-void help(void)
+void help (void)
 {
     printf("\npwd: Gets the current direcory you're in\n");
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
     printf("cd: Change current directory\n");
-    printf("echo: Print something to console\n"); 
+    printf("echo: Print something to console\n");
+    printf("clear: Clear the terminal");
 }
 
-int cd(void)
+int cd (void)
 {
 #ifdef _WIN32
     char filePath[4096];
     char path[4096];
 
-    if(SetCurrentDirectoryA){
+    if (SetCurrentDirectoryA){
         printf("\nEnter a file path: ");
         scanf(" %4094s", &filePath);
          
         SetCurrentDirectoryA(filePath);
-        printf(L"\n>> Switched to '%s'\n", filePath);
+        printf("\n>> Switched to '%s'\n", filePath);
         return 0;
     }
 
@@ -69,4 +71,11 @@ void echo (void)
     scanf("%4095s", &buff);
 
     printf("\n%s\n", buff);
+}
+
+void clear (void)
+{
+#ifdef WIN32
+    system("cls");
+#endif
 }

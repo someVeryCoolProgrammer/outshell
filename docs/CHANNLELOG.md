@@ -2,6 +2,7 @@
 
 - Fixed readme download bug
 - Fixed cd command
+- removed ambiguous L in a print statement
 
 # 29th October 2026 (major update)
 
