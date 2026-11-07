@@ -44,16 +44,16 @@ int cd (void)
 {
 #ifdef _WIN32
     char filePath[4096];
-    char path[4096];
 
-    if (SetCurrentDirectoryA) {
-        scanf(" %4094s", &filePath);
+    scanf(" %4094s", filePath);
+    
+    if (SetCurrentDirectoryA(filePath)) {
         SetCurrentDirectoryA(filePath);
         return 0;
     }
     
     else {
-        perror("Failed to switch directories");
+        perror("No such directory or file");
         return 1;
     }
 #endif
@@ -63,11 +63,9 @@ int cd (void)
 void echo (void)
 {
     char buf[4096];
-    int bufSize = sizeof(buf);
-    
-    printf("");
-    scanf("%4095s", &buf);
-    
+   
+    scanf("%4095s", buf);
+
     printf("%s", buf);
 }
 

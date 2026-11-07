@@ -8,16 +8,18 @@
     #include <unistd.h>
 #endif
 
-int getCurrentDir (char *path, size_t size)
+int getCurrentDir (char *path, const size_t size)
 {
 #ifdef _WIN32
-    const DWORD len = GetCurrentDirectoryA(4096, path);
-        
-    if (len  == 0 || len > 4096) {
+    const DWORD len = GetCurrentDirectoryA((DWORD) size, path);
+     
+    if (len  == 0 || len > size) {
         return 1;
     }
 #else
-    char *getcwd(4096, path)
+    if (!getcwd(path, size)) {
+        return 1;
+    }
 #endif
     return 0;
 }

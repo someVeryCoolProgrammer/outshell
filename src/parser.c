@@ -15,7 +15,7 @@ void parser (void)
 
     while (true) {
         prompt();
-        scanf("%4095s", &userInput);
+        scanf("%4095s", userInput);
 
         if (strcmp(userInput,"pwd") == 0){
             pwd();
@@ -31,7 +31,7 @@ void parser (void)
         } else if (strcmp(userInput, "clear") == 0) {
             clear();
         } else {
-            fprintf(stderr, "\nCommand: '%s' was not found\n", &userInput);
+            fprintf(stderr, "\nCommand: '%s' was not found\n", userInput);
         }    
     }
 }

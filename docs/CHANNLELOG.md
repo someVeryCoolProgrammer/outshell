@@ -1,4 +1,10 @@
-7/11/'26 (Bug Fix)
+# 7/11/'26 (Bug Fix)
+
+- Added semicolon for getcwd
+- Removed unused vars
+- Fixed prompt for unix based operating systems
+
+# 7/11/'26 (Bug Fix)
 
 - Fixed text not aligned to center in README.md
 
