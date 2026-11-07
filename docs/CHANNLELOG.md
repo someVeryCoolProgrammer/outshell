@@ -1,3 +1,7 @@
+7/11/'26 (Bug Fix)
+
+- Fixed text not aligned to center in README.md
+
 # 3/11/'26 (Bug Fix)
 
 - Fixed readme download bug

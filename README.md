@@ -1,4 +1,4 @@
-<div align="centre">
+<div align="center">
     <h1>outshell</h1>
     <h3>Private. Terse. Reliable.</h3>
 </div>
@@ -9,13 +9,13 @@
 
 # About
 
-outshell is an open-source shell that values user privacy and aims to be less verbose than powershell. More about open-source [here](https://opensource.com/resources/what-open-source). outshell is available for both windows and unix based operating systems.
+outshell is an open-source shell that values user privacy, aims to be less verbose than powershell, and easy to use.outshell is available for both windows and unix based operating systems.
 
 [![outshell's Version](https://img.shields.io/github/v/release/someVeryCoolProgrammer/outshell)](https://github.com/someVeryCoolProgrammer/outshell/releases/latest)
 
 # Getting Started
 
-First, you need to install Make. Make can be installed via the link [here](https://gnuwin32.sourceforge.net/packages/make.htm).  
+First, you need to install [Make](https://gnuwin32.sourceforge.net/packages/make.htm) and [git](https://git-scm.com/install/).  
 
 Clone outshell:
 ```shell
