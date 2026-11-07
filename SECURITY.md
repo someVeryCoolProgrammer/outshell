@@ -27,4 +27,4 @@ Please include:
 
 # Notes
 
-All versions are supported for patches.
+All versions >= 1.0.0 are supported for patches.

@@ -10,6 +10,15 @@
 
 int getCurrentDir (char *path, const size_t size)
 {
+    /* Gets the current directory user is in
+     * 
+     * Args:
+     *      char *path: Path to where user is
+     *      const size_t size: Size of buffer to where path will be stored
+     *  
+     *  Returns:
+     *      int
+     * */
 #ifdef _WIN32
     const DWORD len = GetCurrentDirectoryA((DWORD) size, path);
      

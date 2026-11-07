@@ -10,6 +10,13 @@
 
 int prompt (void)
 {
+    /* 
+     * Displays prompt 
+     *  
+     * Returns:
+     *      int
+     * */
+
     char path[4096];
 
     if (getCurrentDir(path, sizeof(path))) {

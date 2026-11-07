@@ -8,6 +8,7 @@
 
 void parser (void) 
 {
+    // Displays welcome messags, reads and takes user input for commands, and calls commands
 
     printf("\n\t--- Welcome To outshell ---\n");
     

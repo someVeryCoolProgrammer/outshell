@@ -13,6 +13,12 @@
 
 int pwd (void)
 {
+    /* 
+     * Command to list the current working directory the user currently is in 
+     * 
+     * Returns:
+     *      int
+     * */
     char path[4096];
 
     if(getCurrentDir(path, sizeof(path))) {
@@ -27,11 +33,13 @@ int pwd (void)
 
 void quit (void) 
 {
+    // Csmmand to quit outshell
     printf("\nGoodbye\n");
 }
 
 void help (void)
 {
+    // Command help guide
     printf("\npwd: Get the current direcory you're in\n");
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
@@ -42,13 +50,18 @@ void help (void)
 
 int cd (void)
 {
+    /* Command to change current working directory 
+     * 
+     * Returns:
+     *      int
+     * */
 #ifdef _WIN32
-    char filePath[4096];
+    char filePathWin[4096];
 
-    scanf(" %4094s", filePath);
+    scanf(" %4094s", filePathWin);
     
-    if (SetCurrentDirectoryA(filePath)) {
-        SetCurrentDirectoryA(filePath);
+    if (SetCurrentDirectoryA(filePathWin)) {
+        SetCurrentDirectoryA(filePathWin);
         return 0;
     }
     
@@ -56,12 +69,27 @@ int cd (void)
         perror("No such directory or file");
         return 1;
     }
+#else
+    char filePathUnix[4096]
+
+    scanf(" %4095s", filePathUnix);
+
+    if (chdir("%s", filePathUnix)) {
+        chdir("%s", filePathUnix);
+    }
+
+    else {
+        perror("No such directory or file");
+        return 1;
+    }
+
 #endif
     return 0;
 }
 
 void echo (void)
 {
+    // Command that prints to console like printf(); in C
     char buf[4096];
    
     scanf("%4095s", buf);
@@ -71,6 +99,7 @@ void echo (void)
 
 void clear (void)
 {
+    // Clear the screan 
     printf("\033[2J\033[H");
 }
 
