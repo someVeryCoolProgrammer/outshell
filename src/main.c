@@ -1,36 +1,8 @@
-#include <stdio.h>
-#include <string.h>
-#include "..\include\commands.h"
-#include "..\include\prompt.h"
+#include "../include/parser.h"
 
-int main (void) 
+int main ()
 {
-#ifdef _WIN32
-    printf("\n--- Welcome To outshell ---\n");
-
-    char userInput[4096];
-
-    while (userInput != '\0') {
-        prompt();
-        scanf("%4095s", &userInput);  
-
-        if (strcmp(userInput, "pwd") == 0){
-            pwd();
-        } else if (strcmp(userInput, "quit") == 0) {
-            quit();
-            return 1;
-        } else if (strcmp(userInput, "help") == 0) {
-            help();
-        } else if (strcmp(userInput, "cd") == 0) {
-            cd();
-        } else if (strcmp(userInput, "echo") == 0) {
-            echo();
-        } else if (strcmp(userInput, "clear") == 0) {
-            clear();
-        } else {
-            printf("\nInvalid Input!\n");
-        }    
-    }
-#endif
+    parser();
     return 0;
 }
+

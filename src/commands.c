@@ -1,43 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../include/commands.h"
+#include "../include/getCurrentDir.h"
+#include "../include/prompt.h"
+
 #ifdef _WIN32
-    #include <stdio.h>
     #include <windows.h>
-    #include "..\include\commands.h"
-    #include "..\include\getCurrentDir.h"
-    #include "..\include\prompt.h"
 #else
-    printf("Unix based operating systems not supported");
+    #include <unistd.h>
 #endif
 
 int pwd (void)
 {
-#ifdef _WIN32
     char path[4096];
 
     if(getCurrentDir(path, sizeof(path))) {
-        printf("\nFailed to get current working directory :(\n");
+        perror("\nFailed to get current working directory :(\n");
         return 1;
     }
     else {
-        printf("\n>> %s\n", path);
+        printf("\n%s\n", path);
         return 0;
     }
-#endif
-    return 0;
 }
 
 void quit (void) 
 {
-    printf("Goodbye\n");
+    printf("\nGoodbye\n");
 }
 
 void help (void)
 {
-    printf("\npwd: Gets the current direcory you're in\n");
+    printf("\npwd: Get the current direcory you're in\n");
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
-    printf("cd: Change current directory\n");
-    printf("echo: Print something to console\n");
-    printf("clear: Clear the terminal");
+    printf("cd: Change directory\n");
+    printf("echo: Print to console\n");
+    printf("clear: Clear the terminal\n");
 }
 
 int cd (void)
@@ -46,17 +46,14 @@ int cd (void)
     char filePath[4096];
     char path[4096];
 
-    if (SetCurrentDirectoryA){
-        printf("\nEnter a file path: ");
+    if (SetCurrentDirectoryA) {
         scanf(" %4094s", &filePath);
-         
         SetCurrentDirectoryA(filePath);
-        printf("\n>> Switched to '%s'\n", filePath);
         return 0;
     }
-
+    
     else {
-        printf("Failed to switch to: %s", filePath);
+        perror("Failed to switch directories");
         return 1;
     }
 #endif
@@ -65,17 +62,17 @@ int cd (void)
 
 void echo (void)
 {
-    char buff[4096];
+    char buf[4096];
+    int bufSize = sizeof(buf);
     
-    printf("\nEnter something you would like to print (to the console): ");
-    scanf("%4095s", &buff);
-
-    printf("\n%s\n", buff);
+    printf("");
+    scanf("%4095s", &buf);
+    
+    printf("%s", buf);
 }
 
 void clear (void)
 {
-#ifdef WIN32
-    system("cls");
-#endif
+    printf("\033[2J\033[H");
 }
+

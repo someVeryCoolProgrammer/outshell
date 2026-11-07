@@ -1,25 +1,21 @@
+<div align="centre">
+    <h1>outshell</h1>
+    <h3>Private. Terse. Reliable.</h3>
+</div>
+
 # Table Of Contents
 - [Getting Started](#getting-started)
-- [Notice](#notice)
 - [About](#about)
-
----
-
-# Notice
-outshell is an open-source shell, that I made mainly to learn. outshell is a privacy respecting shell.
-
----
 
 # About
 
-outshell is an open-source shell that values user privacy. More about open-source [here](https://opensource.com/resources/what-open-source). Unix based operating systems will **NEVER** be supported.
+outshell is an open-source shell that values user privacy and aims to be less verbose than powershell. More about open-source [here](https://opensource.com/resources/what-open-source). outshell is available for both windows and unix based operating systems.
 
 [![outshell's Version](https://img.shields.io/github/v/release/someVeryCoolProgrammer/outshell)](https://github.com/someVeryCoolProgrammer/outshell/releases/latest)
 
----
 # Getting Started
 
-First, you need to install make. Make can be installed by the link [here](https://gnuwin32.sourceforge.net/packages/make.htm).  
+First, you need to install Make. Make can be installed via the link [here](https://gnuwin32.sourceforge.net/packages/make.htm).  
 
 Clone outshell:
 ```shell
@@ -36,21 +32,30 @@ Make bin directory:
 mkdir bin
 ```
 
-Compile outshell:
+Compile outshell on windows:
 ```shell
-make all
+make w
 ```
 
-Run outshell:  
+Compile outshell on unix based operating systems:
 ```shell
-.\bin\outshell.exe
+make u
+```
+
+Run outshell on windows:  
+```shell
+./bin/outshell.exe
+```
+
+Run outshell on unix based operating systems:  
+```shell
+./bin/outshell
 ```
 
 PLEASE MAKE SURE **NOT** TO RUN:
 ```shell
-make all | .\bin\outshell.exe
+make <os> | ./bin/outshell(.exe)
 ```
-
-It causes the program to enter an infinite while loop.
+It will cause the outshell to enter an infinite while loop. To escape it, please press control + c.
 
 Thank you for using outshell ❤️

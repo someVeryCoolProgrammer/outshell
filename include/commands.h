@@ -4,7 +4,7 @@
 int pwd (void);
 void quit (void);
 void help (void);
-int cd (void);
+int cd (void); 
 void echo (void);
 void clear (void);
 
