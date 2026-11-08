@@ -22,7 +22,7 @@ int pwd (void)
     char path[4096];
 
     if(getCurrentDir(path, sizeof(path))) {
-        perror("\nFailed to get current working directory :(\n");
+        fprintf(stderr, "\nFailed to get current working directory :(\n");
         return 1;
     }
     else {
@@ -31,26 +31,42 @@ int pwd (void)
     }
 }
 
-void quit (void) 
+int quit (void) 
 {
-    // Csmmand to quit outshell
+    /* 
+     * Command to quit outshell 
+     *  
+     * Returns:
+     *      int
+     * */
     printf("\nGoodbye\n");
+    
+    // Exit function when used
+    return 1;
 }
 
-void help (void)
+int help (void)
 {
-    // Command help guide
+    /* 
+     * Command help guide 
+     * 
+     * Returns:
+     *      int
+     * */
     printf("\npwd: Get the current direcory you're in\n");
     printf("quit: Quit outshell\n");
     printf("help: outshell's help guide\n");
     printf("cd: Change directory\n");
     printf("echo: Print to console\n");
     printf("clear: Clear the terminal\n");
+
+    return 0;
 }
 
 int cd (void)
 {
-    /* Command to change current working directory 
+    /* 
+     * Command to change current working directory 
      * 
      * Returns:
      *      int
@@ -66,7 +82,7 @@ int cd (void)
     }
     
     else {
-        perror("No such directory or file");
+        fprintf(stderr, "No such directory or file: '%s'", filePathWin);
         return 1;
     }
 #else
@@ -79,7 +95,7 @@ int cd (void)
     }
 
     else {
-        perror("No such directory or file");
+        fprintf(stderr, "No such directory or file: '%s'", filePathUnix);
         return 1;
     }
 
@@ -87,19 +103,31 @@ int cd (void)
     return 0;
 }
 
-void echo (void)
+int echo (void)
 {
-    // Command that prints to console like printf(); in C
+    /* 
+     * Command that prints to console like printf(); in C 
+     *
+     * Returns:
+     *      int
+     * */
     char buf[4096];
    
     scanf("%4095s", buf);
 
-    printf("%s", buf);
+    printf("\n%s\n", buf);
+    return 0;
 }
 
-void clear (void)
+int clear (void)
 {
-    // Clear the screan 
+    /* 
+     * Clears the screan 
+     * 
+     * Returns:
+     *      int 
+     * */
     printf("\033[2J\033[H");
+    return 0;
 }
 

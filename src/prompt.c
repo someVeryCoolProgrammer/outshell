@@ -23,7 +23,7 @@ int prompt (void)
         fprintf(stderr ,"\nFailed to get current working directory :(\n");
         return 1;
     } else {
-    printf("\n%s\n> ", path);
+        printf("\n%s\n> ", path);
         return 0;
     }
 }

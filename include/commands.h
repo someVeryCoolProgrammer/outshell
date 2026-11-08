@@ -2,10 +2,10 @@
 #define COMMANDS_H
 
 int pwd (void);
-void quit (void);
-void help (void);
+int quit (void);
+int help (void);
 int cd (void); 
-void echo (void);
-void clear (void);
+int echo (void);
+int clear (void);
 
 #endif
