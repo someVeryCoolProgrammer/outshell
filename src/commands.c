@@ -31,10 +31,10 @@ int pwd (void)
     }
 }
 
-int quit (void) 
+int exit (void) 
 {
     /* 
-     * Command to quit outshell 
+     * Command to exit outshell  
      *  
      * Returns:
      *      int
@@ -54,7 +54,7 @@ int help (void)
      *      int
      * */
     printf("\npwd: Get the current direcory you're in\n");
-    printf("quit: Quit outshell\n");
+    printf("exit: Exit outshell\n");
     printf("help: outshell's help guide\n");
     printf("cd: Change directory\n");
     printf("echo: Print to console\n");
