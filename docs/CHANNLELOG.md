@@ -1,3 +1,7 @@
+# 10/11/'26 (Bug Fix)
+
+- Fixed build error
+
 # 7/11/'26 (Bug Fix)
 
 - Added semicolon for getcwd
