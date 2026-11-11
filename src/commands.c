@@ -31,20 +31,6 @@ int pwd (int argc, char *argv[])
     }
 }
 
-int exit (int argc, char *argv[]) 
-{
-    /* 
-     * Command to exit outshell  
-     *  
-     * Returns:
-     *      int
-     * */
-    printf("\nGoodbye\n");
-    
-    // Exit function when used
-    return 1;
-}
-
 int help (int argc, char *argv[])
 {
     /* 
@@ -53,12 +39,21 @@ int help (int argc, char *argv[])
      * Returns:
      *      int
      * */
-    printf("\npwd: Get the current direcory you're in\n");
-    printf("exit: Exit outshell\n");
-    printf("help: outshell's help guide\n");
-    printf("cd: Change directory\n");
-    printf("echo: Print to console\n");
-    printf("clear: Clear the terminal\n");
+
+    if (argc > 1) {
+        perror("\nThis function has no flags.\n");
+        return 1;
+    } else {
+        printf("\npwd: Get the current direcory you're in\n");
+        printf("exit: Exit outshell\n");
+        printf("help: outshell's help guide\n");
+        printf("cd: Change directory\n");
+        printf("echo: Print to console\n");
+        printf("clear: Clear the terminal\n");
+        return 0;
+    }
+    
+    printf("%d", argc)
 
     return 0;
 }
@@ -119,7 +114,7 @@ int echo (int argc, char *argv[])
     return 0;
 }
 
-int clear (int argc, *argv[])
+int clear (int argc, char *argv[])
 {
     /* 
      * Clears the screan 

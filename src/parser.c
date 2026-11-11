@@ -29,18 +29,17 @@ void parser (void)
 
     int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
     
-    bool isRunning = true;
-
+    bool isRunning = true;    
+    int argc = argc;
+    char **argv = argv;
+    
     while (isRunning) {
         prompt();
         scanf("%4095s", userInput);
        
-        if (strcmp("quit", userInput) == 0) {
+        if (strcmp("exit", userInput) == 0) {
             isRunning = false;
         }
-        
-        int argc = argc;
-        char **argv = argv;
 
         for (int i = 0; i < sizeofCmds; i++) {
             if (strcmp(cmds[i].name, userInput) == 0) {
