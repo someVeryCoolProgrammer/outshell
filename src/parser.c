@@ -8,7 +8,7 @@
 
 typedef struct {
     char *name;
-    int (*command)(void);
+    int (*command)(int argc, char **argv);
 }FindCommand;
 
 void parser (void) 
@@ -38,10 +38,13 @@ void parser (void)
         if (strcmp("quit", userInput) == 0) {
             isRunning = false;
         }
+        
+        int argc = argc;
+        char **argv = argv;
 
         for (int i = 0; i < sizeofCmds; i++) {
             if (strcmp(cmds[i].name, userInput) == 0) {
-                cmds[i].command();
+                cmds[i].command(argc, argv);
             }
         } 
     }

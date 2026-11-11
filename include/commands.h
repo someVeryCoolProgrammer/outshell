@@ -1,11 +1,11 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-int pwd (void);
-int exit (void);
-int help (void);
-int cd (void); 
-int echo (void);
-int clear (void);
+int pwd (int argc, char *argv[]);
+int exit (int argc, char *argv[]);
+int help (int argc, *argv[]);
+int cd (int argc, char *argv[]); 
+int echo (int argc, char *argv[]);
+int clear (int argc, char *argv[]);
 
 #endif

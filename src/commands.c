@@ -11,7 +11,7 @@
     #include <unistd.h>
 #endif
 
-int pwd (void)
+int pwd (int argc, char *argv[])
 {
     /* 
      * Command to list the current working directory the user currently is in 
@@ -31,7 +31,7 @@ int pwd (void)
     }
 }
 
-int exit (void) 
+int exit (int argc, char *argv[]) 
 {
     /* 
      * Command to exit outshell  
@@ -45,7 +45,7 @@ int exit (void)
     return 1;
 }
 
-int help (void)
+int help (int argc, char *argv[])
 {
     /* 
      * Command help guide 
@@ -63,7 +63,7 @@ int help (void)
     return 0;
 }
 
-int cd (void)
+int cd (int argc, char *argv[])
 {
     /* 
      * Command to change current working directory 
@@ -103,7 +103,7 @@ int cd (void)
     return 0;
 }
 
-int echo (void)
+int echo (int argc, char *argv[])
 {
     /* 
      * Command that prints to console like printf(); in C 
@@ -111,15 +111,15 @@ int echo (void)
      * Returns:
      *      int
      * */
-    char buf[4096];
-   
-    scanf("%4095s", buf);
 
-    printf("\n%s\n", buf);
+    for (int i = 0; i < argc; i++) {
+        printf("\n%s\n", argv[i]);
+    }
+
     return 0;
 }
 
-int clear (void)
+int clear (int argc, *argv[])
 {
     /* 
      * Clears the screan 
