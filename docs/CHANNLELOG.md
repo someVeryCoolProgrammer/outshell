@@ -1,3 +1,13 @@
+# 13/11/'26 (Bug Fix)
+
+- Seg fault in echo and cd
+
+# 11/11/'26 (Bug Fix)
+
+- quit not exiting outshell
+- added missing data types in params
+- Removed if-else block in help command i forgot to remove
+
 # 10/11/'26 (Bug Fix)
 
 - Fixed build error

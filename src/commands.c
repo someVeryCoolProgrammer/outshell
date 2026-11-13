@@ -11,7 +11,7 @@
     #include <unistd.h>
 #endif
 
-int pwd (int argc, char *argv[])
+int pwd (void) 
 {
     /* 
      * Command to list the current working directory the user currently is in 
@@ -26,12 +26,12 @@ int pwd (int argc, char *argv[])
         return 1;
     }
     else {
-        printf("\n%s\n", path);
+        printf("\nPath: %s\n", path);
         return 0;
     }
 }
 
-int help (int argc, char *argv[])
+int help (void) 
 {
     /* 
      * Command help guide 
@@ -40,25 +40,17 @@ int help (int argc, char *argv[])
      *      int
      * */
 
-    if (argc > 1) {
-        perror("\nThis function has no flags.\n");
-        return 1;
-    } else {
-        printf("\npwd: Get the current direcory you're in\n");
-        printf("exit: Exit outshell\n");
-        printf("help: outshell's help guide\n");
-        printf("cd: Change directory\n");
-        printf("echo: Print to console\n");
-        printf("clear: Clear the terminal\n");
-        return 0;
-    }
-    
-    printf("%d", argc)
+    printf("\npwd: Get the current direcory you're in\n");
+    printf("exit: Exit outshell\n");
+    printf("help: outshell's help guide\n");
+    printf("cd: Change directory\n");
+    printf("echo: Print to console\n");
+    printf("clear: Clear the terminal\n");
 
     return 0;
 }
 
-int cd (int argc, char *argv[])
+int cd (void)
 {
     /* 
      * Command to change current working directory 
@@ -67,30 +59,29 @@ int cd (int argc, char *argv[])
      *      int
      * */
 #ifdef _WIN32
-    char filePathWin[4096];
+   
+    char userInput[4096];
 
-    scanf(" %4094s", filePathWin);
-    
-    if (SetCurrentDirectoryA(filePathWin)) {
-        SetCurrentDirectoryA(filePathWin);
+    scanf("%4095s", userInput);
+
+    if (SetCurrentDirectoryA(userInput)) {
         return 0;
     }
     
     else {
-        fprintf(stderr, "No such directory or file: '%s'", filePathWin);
+        fprintf(stderr, "No such directory or file.");
         return 1;
     }
 #else
-    char filePathUnix[4096]
 
-    scanf(" %4095s", filePathUnix);
+    fgets(userInput, sizeof(userInput), stdin);
 
-    if (chdir("%s", filePathUnix)) {
-        chdir("%s", filePathUnix);
+    if (chdir(userInput)) {
+        return 0;
     }
 
     else {
-        fprintf(stderr, "No such directory or file: '%s'", filePathUnix);
+        fprintf(stderr, "No such directory or file.");
         return 1;
     }
 
@@ -98,7 +89,7 @@ int cd (int argc, char *argv[])
     return 0;
 }
 
-int echo (int argc, char *argv[])
+int echo ()
 {
     /* 
      * Command that prints to console like printf(); in C 
@@ -107,14 +98,16 @@ int echo (int argc, char *argv[])
      *      int
      * */
 
-    for (int i = 0; i < argc; i++) {
-        printf("\n%s\n", argv[i]);
-    }
+    char userInput[4096];
+
+    fgets(userInput, sizeof(userInput), stdin);
+
+    printf("%s\n", userInput);
 
     return 0;
 }
 
-int clear (int argc, char *argv[])
+int clear (void)
 {
     /* 
      * Clears the screan 
