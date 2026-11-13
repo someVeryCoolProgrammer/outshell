@@ -3,8 +3,6 @@
 - [Reporting a Vulnerability](#reporting-a-vulnerability)
 - [Notes](#notes)
 
----
-
 # Reporting A Vulnerability
 
 If you discover a vulnerability, please report it privately.
@@ -22,8 +20,6 @@ Please include:
 - Impact
 - Any relevant screenshots/videos or other relevant information
 - outshell version
-
----
 
 # Notes
 
