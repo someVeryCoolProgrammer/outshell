@@ -24,6 +24,7 @@ int prompt (void)
         return 1;
     } else {
         printf("\n%s\n> ", path);
+        fflush(stdout);
         return 0;
     }
 }

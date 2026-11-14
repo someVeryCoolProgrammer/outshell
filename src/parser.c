@@ -16,7 +16,8 @@ void parser (void)
     // Displays welcome message, reads and takes user input for commands, and calls commands based on user input
 
     printf("\n\t--- Welcome To outshell ---\n");
-    
+    fflush(stdout);
+
     char userInput[4096];
     
     FindCommand cmds[] = {
@@ -34,7 +35,11 @@ void parser (void)
     while (isRunning) {
         prompt();
         
-        scanf("%s", userInput);
+        // fgets(userInput, sizeof(userInput), stdin);
+        scnaf("%s", userInput);
+        printf("%s", userInput);
+
+        // userInput[strlen(userInput) - 1] = '\0';
 
         if (strcmp("exit", userInput) == 0) {
             isRunning = false;
@@ -44,7 +49,7 @@ void parser (void)
             if (strcmp(cmds[i].name, userInput) == 0) {
                 cmds[i].command();
             }
-        } 
+        }
     }
 }
 
