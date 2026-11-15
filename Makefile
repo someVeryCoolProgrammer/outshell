@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic -Wconversion -Wshadow
-SRC = src/main.c utils/getCurrentDir.c src/commands.c utils/prompt.c src/parser.c
+SRC = src/main.c utils/getCurrentDir.c src/commands.c utils/prompt.c src/parser.c src/token.c
 
 # Compile outshell on windows
 w:

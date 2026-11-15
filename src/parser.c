@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
+#include <stdio.h> 
+#include <string.h> 
+#include <stdbool.h> 
 
 #include "../include/commands.h"
 #include "../include/parser.h"
 #include "../include/prompt.h"
+#include "../include/token.h"
 
 typedef struct {
     char *name;
@@ -32,23 +33,24 @@ void parser (void)
     
     bool isRunning = true;    
 
+    char *tokens[64];
+    
     while (isRunning) {
         prompt();
         
-        // fgets(userInput, sizeof(userInput), stdin);
-        scnaf("%s", userInput);
-        printf("%s", userInput);
-
-        // userInput[strlen(userInput) - 1] = '\0';
+        fgets(userInput, sizeof(userInput), stdin); 
+        userInput[strlen(userInput) - 1] = '\0';
+        token(userInput, tokens, 64);
 
         if (strcmp("exit", userInput) == 0) {
             isRunning = false;
         }
 
         for (int i = 0; i < sizeofCmds; i++) {
-            if (strcmp(cmds[i].name, userInput) == 0) {
+            if (strcmp(cmds[i].name, tokens[0]) == 0) {
                 cmds[i].command();
             }
+            printf("Unknown command: %s", tokens[0]);
         }
     }
 }

@@ -1,7 +1,7 @@
 # 13/11/'26 (Bug Fix)
 
 - Seg fault in echo and cd
-
+- Removed print statement that would print what the user typed 
 # 11/11/'26 (Bug Fix)
 
 - quit not exiting outshell

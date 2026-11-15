@@ -74,7 +74,7 @@ int cd (void)
     }
 #else
 
-    fgets(userInput, sizeof(userInput), stdin);
+    scnaf("%4095s", userInput);
 
     if (chdir(userInput)) {
         return 0;
@@ -92,7 +92,7 @@ int cd (void)
 int echo ()
 {
     /* 
-     * Command that prints to console like printf(); in C 
+     * Command that prints to console.
      *
      * Returns:
      *      int
@@ -110,11 +110,12 @@ int echo ()
 int clear (void)
 {
     /* 
-     * Clears the screan 
+     * Clears the screan. 
      * 
      * Returns:
      *      int 
      * */
+
     printf("\033[2J\033[H");
     return 0;
 }
