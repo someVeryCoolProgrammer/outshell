@@ -8,6 +8,8 @@
     #include <unistd.h>
 #endif
 
+#define PATH_MAX_LENGTH 4096
+
 int prompt (void)
 {
     /* 
@@ -17,7 +19,7 @@ int prompt (void)
      *      int
      * */
 
-    char path[4096];
+    char path[PATH_MAX_LENGTH];
 
     if (getCurrentDir(path, sizeof(path))) {
         fprintf(stderr ,"\nFailed to get current working directory :(\n");

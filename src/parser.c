@@ -12,6 +12,9 @@ typedef struct {
     int (*command)(void);
 }FindCommand;
 
+#define USER_INPUT_MAX_LENGTH 4096
+#define TOKENIZED_USER_INPUT_MAX_LENGTH 64
+
 void parser (void) 
 {
     // Displays welcome message, reads and takes user input for commands, and calls commands based on user input
@@ -19,7 +22,7 @@ void parser (void)
     printf("\n\t--- Welcome To outshell ---\n");
     fflush(stdout);
 
-    char userInput[4096];
+    char userInput[USER_INPUT_MAX_LENGTH];
     
     FindCommand cmds[] = {
         {"pwd", pwd},
@@ -33,7 +36,7 @@ void parser (void)
     
     bool isRunning = true;    
 
-    char *tokens[64];
+    char *tokens[TOKENIZED_USER_INPUT_MAX_LENGTH];
     
     while (isRunning) {
         prompt();

@@ -11,6 +11,9 @@
     #include <unistd.h>
 #endif
 
+#define PATH_MAX_LENGTH 4096
+#define USER_INPUT_MAX_LENGTH 4096
+
 int pwd (void) 
 {
     /* 
@@ -19,7 +22,7 @@ int pwd (void)
      * Returns:
      *      int
      * */
-    char path[4096];
+    char path[PATH_MAX_LENGTH];
 
     if(getCurrentDir(path, sizeof(path))) {
         fprintf(stderr, "\nFailed to get current working directory :(\n");
@@ -60,7 +63,7 @@ int cd (void)
      * */
 #ifdef _WIN32
    
-    char userInput[4096];
+    char userInput[USER_INPUT_MAX_LENGTH];
 
     scanf("%4095s", userInput);
 
@@ -98,7 +101,7 @@ int echo ()
      *      int
      * */
 
-    char userInput[4096];
+    char userInput[USER_INPUT_MAX_LENGTH];
 
     fgets(userInput, sizeof(userInput), stdin);
 
@@ -115,7 +118,8 @@ int clear (void)
      * Returns:
      *      int 
      * */
-
+    
+    // This does not really clear the screen, it's like pressing ctrl + l.
     printf("\033[2J\033[H");
     return 0;
 }

@@ -17,16 +17,16 @@ void token(char *userInput, char *tokens[], int capacity) {
 
     char *tokens[capacity];
 
-    int i = 0;
+    int counter = 0;
 
     while (token != NULL) {
-        tokens[i++] = token;
+        tokens[counter++] = token;
         token = strtok(NULL, " ");
     }
 
     int sizeOfTokens = sizeof(tokens) / sizeof(tokens[0]);
 
-    for (int j = 0; j < sizeOfTokens; j++) {
+    for (int i = 0; i < sizeOfTokens; i++) {
         printf("%s", tokens[i]);
     }
 }
