@@ -4,7 +4,7 @@
 
 #include "../include/commands.h"
 #include "../include/parser.h"
-#include "../include/prompt.h"
+#include "../include/utils/prompt.h"
 #include "../include/token.h"
 
 typedef struct {

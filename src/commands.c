@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 #include "../include/commands.h"
-#include "../include/getCurrentDir.h"
-#include "../include/prompt.h"
+#include "../include/utils/getCurrentDir.h"
+#include "../include/utils/prompt.h"
 
 #ifdef _WIN32
     #include <windows.h>

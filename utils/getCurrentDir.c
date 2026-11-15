@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "../include/getCurrentDir.h"
+#include "../include/utils/getCurrentDir.h"
 
 #ifdef _WIN32
     #include <windows.h>
