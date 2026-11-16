@@ -43,7 +43,7 @@ void parser (void)
         
         fgets(userInput, sizeof(userInput), stdin); 
         userInput[strlen(userInput) - 1] = '\0';
-        token(userInput, tokens, 64);
+        token(userInput, tokens);
 
         if (strcmp("exit", userInput) == 0) {
             isRunning = false;
@@ -53,7 +53,6 @@ void parser (void)
             if (strcmp(cmds[i].name, tokens[0]) == 0) {
                 cmds[i].command();
             }
-            printf("Unknown command: %s", tokens[0]);
         }
     }
 }

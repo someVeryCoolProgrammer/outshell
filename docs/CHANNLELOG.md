@@ -1,3 +1,9 @@
+# 16/11/'26 1.0.7
+
+Fixed bugs:
+-  Local tokens array
+-  User input being printed
+
 # 13/11/'26 (Bug Fix)
 
 - Seg fault in echo and cd
