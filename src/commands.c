@@ -43,12 +43,13 @@ int help (void)
      *      int
      * */
 
-    printf("\npwd: Get the current direcory you're in\n");
-    printf("exit: Exit outshell\n");
-    printf("help: outshell's help guide\n");
-    printf("cd: Change directory\n");
-    printf("echo: Print to console\n");
-    printf("clear: Clear the terminal\n");
+    printf("\npwd: Get the current direcory you're in\n"
+            "exit: Exit outshell\n"
+            "help: outshell's help guide\n"
+            "cd: Change directory\n"
+            "echo: Print to console\n"
+            "clear: Clear the terminal\n"
+    );
 
     return 0;
 }
