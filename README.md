@@ -12,32 +12,29 @@ outshell is an open-source shell that values user privacy, terse, and easy to us
 
 First, you need to install [Make](https://gnuwin32.sourceforge.net/packages/make.htm) and [git](https://git-scm.com/install/).  
 
-Clone outshell:
 ```shell
+# Clone outshell:
+
 git clone https://github.com/someVeryCoolProgrammer/outshell.git
-```
 
-Switch to outshell's directory:
-```shell
+# Switch to outshell's directory:
+
 cd outshell
-```
 
-Make bin directory:
-```shell
+# Make bin directory:
+
 mkdir bin
-```
 
-Compile outshell: 
-```shell
+# Compile outshell: 
+
 # Windows:
 make w
 
 # Unix:
 make u
-```
 
-Run outshell
-```shell
+# Run outshell
+
 # Windows
 ./bin/outshell.exe
 
