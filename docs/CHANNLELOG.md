@@ -1,3 +1,7 @@
+# 21/11/'26 1.0.8
+
+- Fixed outshell not compiling on unix based operating systems.
+
 # 16/11/'26 1.0.7
 
 Fixed bugs:

@@ -1,23 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "../include/commands.h"
-#include "../include/utils/getCurrentDir.h"
-#include "../include/utils/prompt.h"
-#include "../include/token.h"
-
-#ifdef _WIN32
-    #include <windows.h>
-#else
-    #include <unistd.h>
 #endif
 
 #define PATH_MAX_LENGTH 4096
 #define USER_INPUT_MAX_LENGTH 4096
 
-int pwd (void) 
+int pwd (void)
 {
-    // Command to list the current working directory the user currently is in 
+    // Command to list the current working directory the user currently is in
     char path[PATH_MAX_LENGTH];
 
     if(getCurrentDir(path, sizeof(path))) {
@@ -30,9 +18,9 @@ int pwd (void)
     }
 }
 
-int help (void) 
+int help (void)
 {
-    // Command help guide 
+    // Command help guide
 
     printf("\npwd: Get the current direcory you're in\n"
             "exit: Exit outshell\n"
@@ -47,10 +35,10 @@ int help (void)
 
 int cd (void)
 {
-     // Command to change current working directory 
+     // Command to change current working directory
 
 #ifdef _WIN32
-   
+
     char userInput[USER_INPUT_MAX_LENGTH];
 
     scanf("%4095s", userInput);
@@ -58,12 +46,13 @@ int cd (void)
     if (SetCurrentDirectoryA(userInput)) {
         return 0;
     }
-    
+
     else {
         fprintf(stderr, "\033[31mNo such directory or file.\033[0m\n");
         return 1;
     }
 #else
+    char userInput[USER_INPUT_MAX_LENGTH];
 
     scanf("%4095s", userInput);
 
@@ -88,15 +77,16 @@ int echo (void)
 
     fgets(userInput, sizeof(userInput), stdin);
 
-    printf("%s\n", userInput);
+    // No \n 3 skipped lines.
+    printf("%s", userInput);
 
     return 0;
 }
 
 int clear (void)
 {
-    // Clears the screan. 
-    
+    // Clears the screan.
+
     // This does not really clear the screen, it's like pressing ctrl + l.
     printf("\033[2J\033[H");
     return 0;
