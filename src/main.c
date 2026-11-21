@@ -2,12 +2,7 @@
 
 int main ()
 {
-    /* 
-     * Entery point of program
-     *
-     * Returns: 
-     *      int
-     * */
+    // Entery point of program.
     parser();
     return 0;
 }

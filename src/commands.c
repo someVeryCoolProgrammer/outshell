@@ -4,6 +4,7 @@
 #include "../include/commands.h"
 #include "../include/utils/getCurrentDir.h"
 #include "../include/utils/prompt.h"
+#include "../include/token.h"
 
 #ifdef _WIN32
     #include <windows.h>
@@ -16,16 +17,11 @@
 
 int pwd (void) 
 {
-    /* 
-     * Command to list the current working directory the user currently is in 
-     * 
-     * Returns:
-     *      int
-     * */
+    // Command to list the current working directory the user currently is in 
     char path[PATH_MAX_LENGTH];
 
     if(getCurrentDir(path, sizeof(path))) {
-        fprintf(stderr, "\nFailed to get current working directory :(\n");
+        fprintf(stderr, "\n\033[31mFailed to get current working directory\033[0m\n");
         return 1;
     }
     else {
@@ -36,12 +32,7 @@ int pwd (void)
 
 int help (void) 
 {
-    /* 
-     * Command help guide 
-     * 
-     * Returns:
-     *      int
-     * */
+    // Command help guide 
 
     printf("\npwd: Get the current direcory you're in\n"
             "exit: Exit outshell\n"
@@ -56,12 +47,8 @@ int help (void)
 
 int cd (void)
 {
-    /* 
-     * Command to change current working directory 
-     * 
-     * Returns:
-     *      int
-     * */
+     // Command to change current working directory 
+
 #ifdef _WIN32
    
     char userInput[USER_INPUT_MAX_LENGTH];
@@ -73,19 +60,19 @@ int cd (void)
     }
     
     else {
-        fprintf(stderr, "No such directory or file.");
+        fprintf(stderr, "\033[31mNo such directory or file.\033[0m\n");
         return 1;
     }
 #else
 
-    scnaf("%4095s", userInput);
+    scanf("%4095s", userInput);
 
     if (chdir(userInput)) {
         return 0;
     }
 
     else {
-        fprintf(stderr, "No such directory or file.");
+        fprintf(stderr, "\033[31mNo such directory or file.\033[0m");
         return 1;
     }
 
@@ -93,14 +80,9 @@ int cd (void)
     return 0;
 }
 
-int echo ()
+int echo (void)
 {
-    /* 
-     * Command that prints to console.
-     *
-     * Returns:
-     *      int
-     * */
+    // Command that prints to console.
 
     char userInput[USER_INPUT_MAX_LENGTH];
 
@@ -113,12 +95,7 @@ int echo ()
 
 int clear (void)
 {
-    /* 
-     * Clears the screan. 
-     * 
-     * Returns:
-     *      int 
-     * */
+    // Clears the screan. 
     
     // This does not really clear the screen, it's like pressing ctrl + l.
     printf("\033[2J\033[H");

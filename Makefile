@@ -2,6 +2,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic -Wconversion -Wshadow
 SRC = src/main.c utils/getCurrentDir.c src/commands.c utils/prompt.c src/parser.c src/token.c
 
+.PHONY: w u rw ru 
+
 # Compile outshell on windows
 w:
 	$(CC) $(CFLAGS) $(SRC) -o bin/outshell.exe

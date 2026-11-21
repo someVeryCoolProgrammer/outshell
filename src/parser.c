@@ -19,9 +19,6 @@ void parser (void)
 {
     // Displays welcome message, reads and takes user input for commands, and calls commands based on user input
 
-    printf("\n\t--- Welcome To outshell ---\n");
-    fflush(stdout);
-
     char userInput[USER_INPUT_MAX_LENGTH];
     
     FindCommand cmds[] = {
@@ -45,14 +42,23 @@ void parser (void)
         userInput[strlen(userInput) - 1] = '\0';
         token(userInput, tokens);
 
+        bool isFound = false;
+        
         if (strcmp("exit", userInput) == 0) {
+            isFound = true;
             isRunning = false;
         }
-
+        
         for (int i = 0; i < sizeofCmds; i++) {
             if (strcmp(cmds[i].name, tokens[0]) == 0) {
+                isFound = true;
                 cmds[i].command();
             }
+        }
+
+        if (isFound == false) {
+            // \033[31m Colours input red
+            printf("\033[31mCommand: '%s' was not found.\033[0m\n", tokens[0]);
         }
     }
 }

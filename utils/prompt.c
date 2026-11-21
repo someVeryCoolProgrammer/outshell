@@ -12,17 +12,12 @@
 
 int prompt (void)
 {
-    /* 
-     * Displays prompt 
-     *  
-     * Returns:
-     *      int
-     * */
+    // Displays prompt 
 
     char path[PATH_MAX_LENGTH];
 
     if (getCurrentDir(path, sizeof(path))) {
-        fprintf(stderr ,"\nFailed to get current working directory :(\n");
+        fprintf(stderr ,"\n\033[31Failed to get current working directory\033[0m\n");
         return 1;
     } else {
         printf("\n%s\n> ", path);
