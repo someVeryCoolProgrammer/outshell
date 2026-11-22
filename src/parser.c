@@ -9,7 +9,7 @@
 
 typedef struct {
     char *name;
-    int (*command)(void);
+    int (*command)(int argc, char **argv);
 }FindCommand;
 
 #define USER_INPUT_MAX_LENGTH 4096
@@ -40,7 +40,7 @@ void parser (void)
         
         fgets(userInput, sizeof(userInput), stdin); 
         userInput[strlen(userInput) - 1] = '\0';
-        token(userInput, tokens);
+        int amountOfTokens = token(userInput, tokens);
 
         bool isFound = false;
         
@@ -52,7 +52,7 @@ void parser (void)
         for (int i = 0; i < sizeofCmds; i++) {
             if (strcmp(cmds[i].name, tokens[0]) == 0) {
                 isFound = true;
-                cmds[i].command();
+                cmds[i].command(amountOfTokens, tokens);
             }
         }
 

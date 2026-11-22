@@ -1,9 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../include/commands.h"
+#include "../include/utils/getCurrentDir.h"
+#include "../include/utils/prompt.h"
+#include "../include/token.h"
+
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <unistd.h>
 #endif
 
 #define PATH_MAX_LENGTH 4096
 #define USER_INPUT_MAX_LENGTH 4096
 
-int pwd (void)
+int pwd (int argc, char **argv)
 {
     // Command to list the current working directory the user currently is in
     char path[PATH_MAX_LENGTH];
@@ -18,7 +30,7 @@ int pwd (void)
     }
 }
 
-int help (void)
+int help (int argc, char **argv)
 {
     // Command help guide
 
@@ -33,21 +45,16 @@ int help (void)
     return 0;
 }
 
-int cd (void)
+int cd (int argc, char **argv)
 {
      // Command to change current working directory
 
 #ifdef _WIN32
-
     char userInput[USER_INPUT_MAX_LENGTH];
-
-    scanf("%4095s", userInput);
 
     if (SetCurrentDirectoryA(userInput)) {
         return 0;
-    }
-
-    else {
+    } else {
         fprintf(stderr, "\033[31mNo such directory or file.\033[0m\n");
         return 1;
     }
@@ -58,9 +65,7 @@ int cd (void)
 
     if (chdir(userInput)) {
         return 0;
-    }
-
-    else {
+    } else {
         fprintf(stderr, "\033[31mNo such directory or file.\033[0m");
         return 1;
     }
@@ -69,21 +74,19 @@ int cd (void)
     return 0;
 }
 
-int echo (void)
+int echo (int argc, char **argv)
 {
     // Command that prints to console.
 
-    char userInput[USER_INPUT_MAX_LENGTH];
-
-    fgets(userInput, sizeof(userInput), stdin);
-
-    // No \n 3 skipped lines.
-    printf("%s", userInput);
-
+    // i starts at 1 to avoid printing "echo"
+    for (int i = 1; i < argc; i++) {
+    	printf("%s\n", argv[i]);
+	
+    }
     return 0;
 }
 
-int clear (void)
+int clear (int argc, char **argv)
 {
     // Clears the screan.
 

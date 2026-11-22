@@ -1,6 +1,6 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
-void token(char *userInput, char *tokens[]);
+int token(char *userInput, char *tokens[]);
 
 #endif

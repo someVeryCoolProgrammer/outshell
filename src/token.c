@@ -3,7 +3,7 @@
 
 #include "../include/token.h"
 
-void token(char *userInput, char *tokens[]) {
+int token(char *userInput, char *tokens[]) {
     /*
      * Tokenize input
      *
@@ -21,4 +21,5 @@ void token(char *userInput, char *tokens[]) {
         tokens[counter++] = token;
         token = strtok(NULL, " ");
     }
+    return counter;
 }
