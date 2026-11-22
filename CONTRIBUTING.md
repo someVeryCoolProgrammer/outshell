@@ -13,9 +13,18 @@
 - Do not nest code at all.
 - Try **NOT** to collect any user data where possible.
 - All .md files should be all upder-case following cammel case for all multi-name files. Eg: EXAMPLE_ONE.md  
-- Use cammel case for multi-name functions, structs, files/directories, parameters, variables, etc. Eg: char *getCurrentDirectory(void);
+- Use cammel case for multi-name functions, structs, files/directories, parameters, variables, etc. Eg: char *foo;
 - Ai is allowed, but should be avoided because you don't know who owns the code.
 - 80 character limit.
+- Pointer alignment to the right.
+- Return types should be on a seperate line comparted function. Eg:
+```c
+int
+foo (int foo1, int foo2)
+{
+        return foo1 + foo2;
+}
+```
 
 # Pull Requests
 

@@ -3,7 +3,8 @@
 
 #include "../include/token.h"
 
-int token(char *userInput, char *tokens[])
+int
+token(char *userInput, char *tokens[])
 {
 	/*
 	 * Tokenize input

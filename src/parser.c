@@ -1,11 +1,11 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 #include "../include/commands.h"
 #include "../include/parser.h"
-#include "../include/utils/prompt.h"
 #include "../include/token.h"
+#include "../include/utils/prompt.h"
 
 typedef struct
 {
@@ -13,15 +13,16 @@ typedef struct
 	int (*command)(int argc, char **argv);
 } FindCommand;
 
-#define USER_INPUT_MAX_LENGTH 4096
+#define BUFFER 4096
 #define TOKENIZED_USER_INPUT_MAX_LENGTH 64
 
-void parser(void)
+void
+parser(void)
 {
 	// Displays welcome message, reads and takes user input for commands,
 	// and calls commands based on user input
 
-	char userInput[USER_INPUT_MAX_LENGTH];
+	char userInput[BUFFER];
 
 	FindCommand cmds[] = {{"pwd", pwd},
 			      {"help", help},
@@ -32,7 +33,6 @@ void parser(void)
 	int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
 
 	bool isRunning = true;
-	bool isFound = false;
 
 	char *tokens[TOKENIZED_USER_INPUT_MAX_LENGTH];
 
@@ -41,7 +41,10 @@ void parser(void)
 
 		fgets(userInput, sizeof(userInput), stdin);
 		userInput[strlen(userInput) - 1] = '\0';
+
 		int amountOfTokens = token(userInput, tokens);
+
+		bool isFound = false;
 
 		if (strcmp("exit", userInput) == 0) {
 			isFound = true;
@@ -50,8 +53,8 @@ void parser(void)
 
 		for (int i = 0; i < sizeofCmds; i++) {
 			if (strcmp(cmds[i].name, tokens[0]) == 0) {
-				isFound = true;
 				cmds[i].command(amountOfTokens, tokens);
+				isFound = true;
 			}
 		}
 

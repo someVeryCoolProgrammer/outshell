@@ -1,3 +1,4 @@
+#include <stddef.h>
 #ifndef GET_CURRENT_DIR_H
 #define GET_CURRENT_DIR_H
 

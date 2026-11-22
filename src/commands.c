@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 #include "../include/commands.h"
+#include "../include/token.h"
 #include "../include/utils/getCurrentDir.h"
 #include "../include/utils/prompt.h"
-#include "../include/token.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -12,14 +12,14 @@
 #include <unistd.h>
 #endif
 
-#define PATH_MAX_LENGTH 4096
-#define USER_INPUT_MAX_LENGTH 4096
+#define BUFFER 4096
 
-int pwd(int argc, char **argv)
+int
+pwd(int argc, char **argv)
 {
 	// Command to list the current working directory the user currently is
 	// in
-	char path[PATH_MAX_LENGTH];
+	char path[BUFFER];
 
 	if (getCurrentDir(path, sizeof(path))) {
 		fprintf(stderr, "\n\033[31mFailed to get current working "
@@ -31,7 +31,8 @@ int pwd(int argc, char **argv)
 	}
 }
 
-int help(int argc, char **argv)
+int
+help(int argc, char **argv)
 {
 	// Command help guide
 
@@ -45,12 +46,13 @@ int help(int argc, char **argv)
 	return 0;
 }
 
-int cd(int argc, char **argv)
+int
+cd(int argc, char **argv)
 {
 	// Command to change current working directory
 
 #ifdef _WIN32
-	char userInput[PATH_MAX_LENGTH];
+	char userInput[BUFFER];
 
 	scanf("%s", userInput);
 
@@ -72,10 +74,10 @@ int cd(int argc, char **argv)
 	}
 
 #endif
-	return 0;
 }
 
-int echo(int argc, char **argv)
+int
+echo(int argc, char **argv)
 {
 	// Command that prints to console.
 
@@ -86,11 +88,18 @@ int echo(int argc, char **argv)
 	return 0;
 }
 
-int clear(int argc, char **argv)
+int
+clear(int argc, char **argv)
 {
 	// Clears the screan.
 
-	// This does not really clear the screen, it's like pressing ctrl + l.
-	printf("\033[2J\033[H");
+#ifdef _WIN32
+	system("cls");
+
 	return 0;
+#else
+	system("clear");
+
+	return 0;
+#endif
 }

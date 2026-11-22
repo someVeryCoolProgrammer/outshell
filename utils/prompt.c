@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include "../include/utils/getCurrentDir.h"
 #include "../include/utils/prompt.h"
+#include "../include/utils/getCurrentDir.h"
+#include <stdio.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -10,7 +10,8 @@
 
 #define PATH_MAX_LENGTH 4096
 
-int prompt(void)
+int
+prompt(void)
 {
 	// Displays prompt
 

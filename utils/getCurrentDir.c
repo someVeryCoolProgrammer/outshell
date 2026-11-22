@@ -1,6 +1,6 @@
+#include "../include/utils/getCurrentDir.h"
 #include <stdio.h>
 #include <string.h>
-#include "../include/utils/getCurrentDir.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -8,7 +8,8 @@
 #include <unistd.h>
 #endif
 
-int getCurrentDir(char *path, const size_t size)
+int
+getCurrentDir(char *path, const size_t size)
 {
 	/* Gets the current directory user is in
 	 *
@@ -27,5 +28,4 @@ int getCurrentDir(char *path, const size_t size)
 		return 1;
 	}
 #endif
-	return 0;
 }
