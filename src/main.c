@@ -1,9 +1,8 @@
 #include "../include/parser.h"
 
-int main ()
+int main()
 {
-    // Entery point of program.
-    parser();
-    return 0;
+	// Entery point of program.
+	parser();
+	return 0;
 }
-

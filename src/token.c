@@ -3,23 +3,24 @@
 
 #include "../include/token.h"
 
-int token(char *userInput, char *tokens[]) {
-    /*
-     * Tokenize input
-     *
-     * Args:
-     *      char *userInput: Command the user typed.
-     *      char *tokens: Array of tokenized user input.
-     *      int capacity: Amount of elements inside char *tokens
-     * */
-    
-    char *token = strtok(userInput, " ");
+int token(char *userInput, char *tokens[])
+{
+	/*
+	 * Tokenize input
+	 *
+	 * Args:
+	 *      char *userInput: Command the user typed.
+	 *      char *tokens: Array of tokenized user input.
+	 *      int capacity: Amount of elements inside char *tokens
+	 * */
 
-    int counter = 0;
+	char *token = strtok(userInput, " ");
 
-    while (token != NULL) {
-        tokens[counter++] = token;
-        token = strtok(NULL, " ");
-    }
-    return counter;
+	int counter = 0;
+
+	while (token != NULL) {
+		tokens[counter++] = token;
+		token = strtok(NULL, " ");
+	}
+	return counter;
 }
