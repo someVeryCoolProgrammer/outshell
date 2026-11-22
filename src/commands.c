@@ -21,12 +21,22 @@ pwd(int argc, char **argv)
 	 * in.
 	 * */
 	char path[BUFFER];
-
-	getCurrentDir(path, BUFFER);
 	
-	printf("\n%s\n", path);
-
-	return 0;
+	if (argc == 1) {
+		getCurrentDir(path, BUFFER);
+		printf("\n%s\n", path);
+		return 0;
+	} else if (argc > 1 && strcmp(argv[1], "--help") == 0) {
+		printf("Print the current working directory you're in.\n"
+		"\tFlags:\n\t\t --help: Help for command: 'pwd'");
+		return 0;
+	} else {
+		printf("\033[31mFlag: '%s' was not found. 'pwd --help' for "
+		       "guide on how to use pwd\n\033[0m",
+			argv[1]);
+		return 0;
+	}
+return 0;
 }
 
 int
@@ -35,10 +45,11 @@ help(int argc, char **argv)
 	// Command help guide.
 
 	printf("\npwd: Get the current direcory you're in\n"
-	       "exit: Exit outshell\n"
-	       "help: outshell's help guide\n"
-	       "cd: Change directory\n"
-	       "echo: Print to console\n"
+	       "\tFlags:\n\t\t--help: help for command: 'pwd'\n"
+	       "exit:  Exit outshell\n"
+	       "help:  outshell's help guide\n"
+	       "cd:    Change directory\n"
+	       "echo:  Print to console\n"
 	       "clear: Clear the terminal\n");
 
 	return 0;
