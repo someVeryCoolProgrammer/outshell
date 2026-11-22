@@ -9,7 +9,7 @@
 
 typedef struct
 {
-	char *name;
+	char *commandName;
 	int (*command)(int argc, char **argv);
 } FindCommand;
 
@@ -52,7 +52,7 @@ parser(void)
 		}
 
 		for (int i = 0; i < sizeofCmds; i++) {
-			if (strcmp(cmds[i].name, tokens[0]) == 0) {
+			if (strcmp(cmds[i].commandName, tokens[0]) == 0) {
 				cmds[i].command(amountOfTokens, tokens);
 				isFound = true;
 			}
