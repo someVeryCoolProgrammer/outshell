@@ -1,19 +1,18 @@
-BreakAfterReturnType: All
-BasedOnStyle: LLVM
-IndentWidth: 8
-TabWidth: 8
-UseTab: Always
-ColumnLimit: 80
-BreakBeforeBraces: Custom
-BraceWrapping:
-  AfterFunction: true
-  AfterControlStatement: Never
-  AfterStruct: true
-  AfterEnum: true
-  BeforeElse: false
-AllowShortFunctionsOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: Never
-AllowShortLoopsOnASingleLine: false
-IndentCaseLabels: true 
-PointerAlignment: Right
-SortIncludes: true 
+  AllowShortFunctionsOnASingleLine: None
+  AllowShortIfStatementsOnASingleLine: Never
+  AllowShortLoopsOnASingleLine: false
+  BraceWrapping:
+    AfterControlStatement: Never
+    AfterEnum: true
+    AfterFunction: true
+    AfterStruct: true
+    BeforeElse: false
+  BreakAfterReturnType: All
+  BreakBeforeBraces: Custom
+  ColumnLimit: 80
+  IndentCaseLabels: true
+  IndentWidth: 8
+  PointerAlignment: Right
+  SortIncludes: true
+  TabWidth: 8
+  UseTab: Always

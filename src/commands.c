@@ -17,24 +17,22 @@
 int
 pwd(int argc, char **argv)
 {
-	// Command to list the current working directory the user currently is
-	// in
+	/* Command to list the current working directory the user currently is
+	 * in.
+	 * */
 	char path[BUFFER];
 
-	if (getCurrentDir(path, sizeof(path))) {
-		fprintf(stderr, "\n\033[31mFailed to get current working "
-				"directory\033[0m\n");
-		return 1;
-	} else {
-		printf("\nPath: %s\n", path);
-		return 0;
-	}
+	getCurrentDir(path, BUFFER);
+	
+	printf("\n%s\n", path);
+
+	return 0;
 }
 
 int
 help(int argc, char **argv)
 {
-	// Command help guide
+	// Command help guide.
 
 	printf("\npwd: Get the current direcory you're in\n"
 	       "exit: Exit outshell\n"
@@ -49,7 +47,7 @@ help(int argc, char **argv)
 int
 cd(int argc, char **argv)
 {
-	// Command to change current working directory
+	// Command to change current working directory.
 
 #ifdef _WIN32
 	char userInput[BUFFER];

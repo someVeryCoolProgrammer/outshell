@@ -11,7 +11,7 @@ typedef struct
 {
 	char *commandName;
 	int (*command)(int argc, char **argv);
-} FindCommand;
+} commands;
 
 #define BUFFER 4096
 #define TOKENIZED_USER_INPUT_MAX_LENGTH 64
@@ -24,11 +24,11 @@ parser(void)
 
 	char userInput[BUFFER];
 
-	FindCommand cmds[] = {{"pwd", pwd},
-			      {"help", help},
-			      {"cd", cd},
-			      {"echo", echo},
-			      {"clear", clear}};
+	commands cmds[] = {{"pwd", pwd},
+			   {"help", help},
+			   {"cd", cd},
+			   {"echo", echo},
+			   {"clear", clear}};
 
 	int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
 

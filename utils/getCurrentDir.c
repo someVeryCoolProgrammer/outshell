@@ -28,4 +28,7 @@ getCurrentDir(char *path, const size_t size)
 		return 1;
 	}
 #endif
+	// This return statement avoids this warning: "warning: control reaches
+	// end of non-void function [-Wreturn-type]".
+	return 0;
 }
