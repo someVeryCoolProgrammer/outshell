@@ -1,18 +1,10 @@
-# Table Of Contents
-
-- [Reporting a Vulnerability](#reporting-a-vulnerability)
-- [Notes](#notes)
-
 # Reporting A Vulnerability
 
-If you discover a vulnerability, please report it privately.
-
-You may report it through:
+If you discover a vulnerability, you may report it through:
 - [GitHub's private vulnerability reporting](https://github.com/someVeryCoolProgrammer/outshell/security/advisories/new)
 
-You may **NOT** report it through:
-- Any method that is not GitHub's private vulnerability reporting  
-  
+All other methods are **NOT** supported.
+
 Please include:
 
 - A description of the vulnerability
@@ -21,6 +13,6 @@ Please include:
 - Any relevant screenshots/videos or other relevant information
 - outshell version
 
-# Notes
+# Versions 
 
-All versions >= 1.0.0 are supported for security patches.
+All versions >= 1.0.0 are supported for security patches. Version > 1.0.0 are **NOT** supported.
