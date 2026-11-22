@@ -17,32 +17,30 @@
 int
 pwd(int argc, char **argv)
 {
-	/* Command to list the current working directory the user currently is
-	 * in.
-	 * */
+	// Print the current working directory the user is in.
 	char path[BUFFER];
-	
+
 	if (argc == 1) {
 		getCurrentDir(path, BUFFER);
 		printf("\n%s\n", path);
 		return 0;
 	} else if (argc > 1 && strcmp(argv[1], "--help") == 0) {
 		printf("Print the current working directory you're in.\n"
-		"\tFlags:\n\t\t --help: Help for command: 'pwd'");
+		       "\tFlags:\n\t\t --help: Help for command: 'pwd'");
 		return 0;
 	} else {
 		printf("\033[31mFlag: '%s' was not found. 'pwd --help' for "
 		       "guide on how to use pwd\n\033[0m",
-			argv[1]);
+		       argv[1]);
 		return 0;
 	}
-return 0;
+	return 0;
 }
 
 int
 help(int argc, char **argv)
 {
-	// Command help guide.
+	// Help guide for outshell's commands.
 
 	printf("\npwd: Get the current direcory you're in\n"
 	       "\tFlags:\n\t\t--help: help for command: 'pwd'\n"
@@ -58,7 +56,7 @@ help(int argc, char **argv)
 int
 cd(int argc, char **argv)
 {
-	// Command to change current working directory.
+	// Change current working directory.
 
 #ifdef _WIN32
 	char userInput[BUFFER];
@@ -88,7 +86,7 @@ cd(int argc, char **argv)
 int
 echo(int argc, char **argv)
 {
-	// Command that prints to console.
+	// Print something to console.
 
 	// i starts at 1 to avoid printing "echo"
 	for (int i = 1; i < argc; i++) {
@@ -100,7 +98,7 @@ echo(int argc, char **argv)
 int
 clear(int argc, char **argv)
 {
-	// Clears the screan.
+	// Clearn screen.
 
 #ifdef _WIN32
 	system("cls");

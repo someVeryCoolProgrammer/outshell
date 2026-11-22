@@ -14,8 +14,8 @@ getCurrentDir(char *path, const size_t size)
 	/* Gets the current directory user is in
 	 *
 	 * Args:
-	 *      char *path: Path to where user is
-	 *      const size_t size: Size of buffer to where path will be stored
+	 *      char *path:	   Path to where user is.
+	 *      const size_t size: Size of buffer to where path will be stored.
 	 * */
 #ifdef _WIN32
 	const DWORD len = GetCurrentDirectoryA((DWORD)size, path);
@@ -28,7 +28,5 @@ getCurrentDir(char *path, const size_t size)
 		return 1;
 	}
 #endif
-	// This return statement avoids this warning: "warning: control reaches
-	// end of non-void function [-Wreturn-type]".
 	return 0;
 }

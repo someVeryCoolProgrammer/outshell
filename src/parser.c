@@ -10,7 +10,7 @@
 typedef struct
 {
 	char *commandName;
-	int (*command)(int argc, char **argv);
+	int (*commands)(int argc, char **argv);
 } commands;
 
 #define BUFFER 4096
@@ -19,8 +19,8 @@ typedef struct
 void
 parser(void)
 {
-	// Displays welcome message, reads and takes user input for commands,
-	// and calls commands based on user input
+	/* Reads user input for commands, and calls commands based on user 
+	 * input. */
 
 	char userInput[BUFFER];
 
@@ -53,7 +53,7 @@ parser(void)
 
 		for (int i = 0; i < sizeofCmds; i++) {
 			if (strcmp(cmds[i].commandName, tokens[0]) == 0) {
-				cmds[i].command(amountOfTokens, tokens);
+				cmds[i].commands(amountOfTokens, tokens);
 				isFound = true;
 			}
 		}

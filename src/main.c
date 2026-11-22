@@ -3,7 +3,8 @@
 int
 main()
 {
-	// Entery point of program.
+	// Entery point for outshell.
 	parser();
+
 	return 0;
 }

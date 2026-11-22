@@ -1,18 +1,18 @@
-  AllowShortFunctionsOnASingleLine: None
-  AllowShortIfStatementsOnASingleLine: Never
-  AllowShortLoopsOnASingleLine: false
-  BraceWrapping:
-    AfterControlStatement: Never
-    AfterEnum: true
-    AfterFunction: true
-    AfterStruct: true
-    BeforeElse: false
-  BreakAfterReturnType: All
-  BreakBeforeBraces: Custom
-  ColumnLimit: 80
-  IndentCaseLabels: true
-  IndentWidth: 8
-  PointerAlignment: Right
-  SortIncludes: true
-  TabWidth: 8
-  UseTab: Always
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: Never
+  AfterEnum: true
+  AfterFunction: true
+  AfterStruct: true
+  BeforeElse: false
+BreakAfterReturnType: All
+ColumnLimit: 80
+IndentCaseLabels: true
+IndentWidth: 8
+PointerAlignment: Right
+SortIncludes: true
+TabWidth: 8
+UseTab: Always

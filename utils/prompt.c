@@ -13,7 +13,7 @@
 int
 prompt(void)
 {
-	// Displays prompt
+	// Displays prompt.
 
 	char path[PATH_MAX_LENGTH];
 
