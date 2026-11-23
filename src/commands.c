@@ -59,11 +59,10 @@ cd(int argc, char **argv)
 	// Change current working directory.
 
 #ifdef _WIN32
-	char userInput[BUFFER];
-
-	scanf("%s", userInput);
-
-	if (SetCurrentDirectoryA(userInput)) {
+	if (argc == 1) {
+		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		return 1;
+	} else if (SetCurrentDirectoryA(argv[1])) {
 		return 0;
 	} else {
 		fprintf(stderr, "\033[31mNo such directory or file. Try "
@@ -72,12 +71,15 @@ cd(int argc, char **argv)
 	}
 #else
 
-	if (chdir(userInput)) {
+	if (argc == 1) {
+		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		return 1;
+	} else if (chdir(argv[1])) {
 		return 0;
 	} else {
 		fprintf(stderr, "\033[31mNo such directory or file. Try "
 				"absoloute path.\033[0m");
-		return 1;
+		return -1;
 	}
 
 #endif
