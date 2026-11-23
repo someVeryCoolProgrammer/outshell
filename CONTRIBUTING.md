@@ -1,8 +1,3 @@
-# Table Of Contents
-
-- [outshell's Coding Standards](#outshells-coding-standards)
-- [Pull Requests](#1-pull-requests)
-
 # outshell's Coding Standards
 
 - Use tabs over spaces that a 8 spaces wide.
@@ -11,7 +6,7 @@
 - Document all functions, somewhat like google style docstrings in python.
 - When writting documentation, get to the point as quick as possible.
 - Do not nest code at all.
-- Try **NOT** to collect any user data where possible.
+- User privacy is a priority.
 - All .md files should be all upder-case following cammel case for all multi-name files. Eg: EXAMPLE_ONE.md  
 - Use cammel case for multi-name functions, structs, files/directories, parameters, variables, etc. Eg: char *foo;
 - Ai is allowed, but should be avoided because you don't know who owns the code.

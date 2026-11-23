@@ -1,16 +1,16 @@
-# Table Of Contents
-- [Getting Started](#getting-started)
-- [About](#about)
-
 # About
 
-outshell is an open-source shell that values user privacy, terse, and easy to use. outshell is available for both windows and unix based operating systems.
+outshell is an free and open-source shell that is: terse, easy to use, and fast. outshell is available for both windows and unix based operating systems. 
 
 [![outshell's Version](https://img.shields.io/github/v/release/someVeryCoolProgrammer/outshell)](https://github.com/someVeryCoolProgrammer/outshell/releases/latest)
 
-# Getting Started
+# Requirements
 
-First, you need to install [Make](https://gnuwin32.sourceforge.net/packages/make.htm) and [git](https://git-scm.com/install/).  
+- [Make](https://gnuwin32.sourceforge.net/packages/make.htm)
+- [gcc](https://gcc.gnu.org/install/)
+- [git](https://git-scm.com/install/)
+
+# Getting Started
 
 ```shell
 # Clone outshell:
@@ -25,19 +25,15 @@ cd outshell
 
 mkdir bin
 
-# Compile outshell: 
-
-# Windows:
+# Compile outshell on windows:
 make w
 
-# Unix:
+# Compile outshell on unix based operating systems:
 make u
 
-# Run outshell
-
-# Windows
+# Run outshell on windows:
 ./bin/outshell.exe
 
-# Unix
+# Run outshell on unix based operating systems:
 ./bin/outshell
 ```

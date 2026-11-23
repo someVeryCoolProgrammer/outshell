@@ -9,9 +9,9 @@
 
 typedef struct
 {
-	char *name;
-	int (*command)(int argc, char **argv);
-} FindCommand;
+	char *commandName;
+	int (*commands)(int argc, char **argv);
+} commands;
 
 #define BUFFER 4096
 #define TOKENIZED_USER_INPUT_MAX_LENGTH 64
@@ -19,16 +19,16 @@ typedef struct
 void
 parser(void)
 {
-	// Displays welcome message, reads and takes user input for commands,
-	// and calls commands based on user input
+	/* Reads user input for commands, and calls commands based on user 
+	 * input. */
 
 	char userInput[BUFFER];
 
-	FindCommand cmds[] = {{"pwd", pwd},
-			      {"help", help},
-			      {"cd", cd},
-			      {"echo", echo},
-			      {"clear", clear}};
+	commands cmds[] = {{"pwd", pwd},
+			   {"help", help},
+			   {"cd", cd},
+			   {"echo", echo},
+			   {"clear", clear}};
 
 	int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
 
@@ -52,8 +52,8 @@ parser(void)
 		}
 
 		for (int i = 0; i < sizeofCmds; i++) {
-			if (strcmp(cmds[i].name, tokens[0]) == 0) {
-				cmds[i].command(amountOfTokens, tokens);
+			if (strcmp(cmds[i].commandName, tokens[0]) == 0) {
+				cmds[i].commands(amountOfTokens, tokens);
 				isFound = true;
 			}
 		}

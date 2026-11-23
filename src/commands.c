@@ -17,30 +17,37 @@
 int
 pwd(int argc, char **argv)
 {
-	// Command to list the current working directory the user currently is
-	// in
+	// Print the current working directory the user is in.
 	char path[BUFFER];
 
-	if (getCurrentDir(path, sizeof(path))) {
-		fprintf(stderr, "\n\033[31mFailed to get current working "
-				"directory\033[0m\n");
-		return 1;
+	if (argc == 1) {
+		getCurrentDir(path, BUFFER);
+		printf("\n%s\n", path);
+		return 0;
+	} else if (argc > 1 && strcmp(argv[1], "--help") == 0) {
+		printf("Print the current working directory you're in.\n"
+		       "\tFlags:\n\t\t --help: Help for command: 'pwd'");
+		return 0;
 	} else {
-		printf("\nPath: %s\n", path);
+		printf("\033[31mFlag: '%s' was not found. 'pwd --help' for "
+		       "guide on how to use pwd\n\033[0m",
+		       argv[1]);
 		return 0;
 	}
+	return 0;
 }
 
 int
 help(int argc, char **argv)
 {
-	// Command help guide
+	// Help guide for outshell's commands.
 
 	printf("\npwd: Get the current direcory you're in\n"
-	       "exit: Exit outshell\n"
-	       "help: outshell's help guide\n"
-	       "cd: Change directory\n"
-	       "echo: Print to console\n"
+	       "\tFlags:\n\t\t--help: help for command: 'pwd'\n"
+	       "exit:  Exit outshell\n"
+	       "help:  outshell's help guide\n"
+	       "cd:    Change directory\n"
+	       "echo:  Print to console\n"
 	       "clear: Clear the terminal\n");
 
 	return 0;
@@ -49,14 +56,13 @@ help(int argc, char **argv)
 int
 cd(int argc, char **argv)
 {
-	// Command to change current working directory
+	// Change current working directory.
 
 #ifdef _WIN32
-	char userInput[BUFFER];
-
-	scanf("%s", userInput);
-
-	if (SetCurrentDirectoryA(userInput)) {
+	if (argc == 1) {
+		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		return 1;
+	} else if (SetCurrentDirectoryA(argv[1])) {
 		return 0;
 	} else {
 		fprintf(stderr, "\033[31mNo such directory or file. Try "
@@ -65,12 +71,15 @@ cd(int argc, char **argv)
 	}
 #else
 
-	if (chdir(userInput)) {
+	if (argc == 1) {
+		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		return 1;
+	} else if (chdir(argv[1])) {
 		return 0;
 	} else {
 		fprintf(stderr, "\033[31mNo such directory or file. Try "
 				"absoloute path.\033[0m");
-		return 1;
+		return -1;
 	}
 
 #endif
@@ -79,7 +88,7 @@ cd(int argc, char **argv)
 int
 echo(int argc, char **argv)
 {
-	// Command that prints to console.
+	// Print something to console.
 
 	// i starts at 1 to avoid printing "echo"
 	for (int i = 1; i < argc; i++) {
@@ -91,7 +100,7 @@ echo(int argc, char **argv)
 int
 clear(int argc, char **argv)
 {
-	// Clears the screan.
+	// Clearn screen.
 
 #ifdef _WIN32
 	system("cls");
