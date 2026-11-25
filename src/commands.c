@@ -60,7 +60,8 @@ cd(int argc, char **argv)
 
 #ifdef _WIN32
 	if (argc == 1) {
-		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		fprintf(stderr,
+			"\033[31mPlease enter a file or directory.\033[0m\n");
 		return 1;
 	} else if (SetCurrentDirectoryA(argv[1])) {
 		return 0;
@@ -72,7 +73,8 @@ cd(int argc, char **argv)
 #else
 
 	if (argc == 1) {
-		fprintf(stderr, "\033[31mPlease enter a file or directory.\033[0m\n");
+		fprintf(stderr,
+			"\033[31mPlease enter a file or directory.\033[0m\n");
 		return 1;
 	} else if (chdir(argv[1])) {
 		return 0;

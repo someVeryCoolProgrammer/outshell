@@ -13,7 +13,7 @@ token(char *userInput, char *tokens[])
 	 *      char *userInput: Command the user typed.
 	 *      char *tokens:    Array of tokenized user input.
 	 *      int  capacity:   Amount of elements inside char *tokens
-	 * 
+	 *
 	 * Returns:
 	 *	int: Amount of tokens.
 	 * */

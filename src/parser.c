@@ -19,7 +19,7 @@ typedef struct
 void
 parser(void)
 {
-	/* Reads user input for commands, and calls commands based on user 
+	/* Reads user input for commands, and calls commands based on user
 	 * input. */
 
 	char userInput[BUFFER];
