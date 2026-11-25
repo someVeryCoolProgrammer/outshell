@@ -114,3 +114,18 @@ clear(int argc, char **argv)
 	return 0;
 #endif
 }
+
+int
+setEnv(int argc, char **argv)
+{
+	if (argc >= 2 && SetEnvironmentVariable(argv[1], argv[2])) {
+			return 0;
+	} else {
+		fprintf(stderr, "\033[31mPlease enter a environment variable "
+				"name and value.\nWhere name is the first "
+				"value and value is the second.\nValue is "
+				"optional.\033[0m\n");
+		return 1;
+	}
+	return 0;
+}

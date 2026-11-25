@@ -24,11 +24,8 @@ parser(void)
 
 	char userInput[BUFFER];
 
-	commands cmds[] = {{"pwd", pwd},
-			   {"help", help},
-			   {"cd", cd},
-			   {"echo", echo},
-			   {"clear", clear}};
+	commands cmds[] = {{"pwd", pwd},   {"help", help},   {"cd", cd},
+			   {"echo", echo}, {"clear", clear}, {"env", setEnv}};
 
 	int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
 
