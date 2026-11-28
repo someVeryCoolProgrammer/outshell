@@ -44,15 +44,6 @@ parser(void)
 
 		bool isFound = false;
 
-		bool program = launch(amountOfTokens, tokens);
-
-		if (program == true) {
-			launch(amountOfTokens, tokens);
-			isFound = true;
-		} else {
-			isFound = false;
-		}
-
 		if (strcmp("exit", userInput) == 0) {
 			isFound = true;
 			isRunning = false;
@@ -65,6 +56,11 @@ parser(void)
 			}
 		}
 
+		if (launch(amountOfTokens, tokens) == true) {
+			launch(amountOfTokens, tokens);
+			isFound = true;
+		} 
+		
 		if (isFound == false) {
 			// \033[31m Colours input red
 			printf("\033[31m'%s' was not found. Type: 'help' for "

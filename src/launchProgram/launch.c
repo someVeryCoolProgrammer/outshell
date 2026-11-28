@@ -28,9 +28,6 @@ launch(int argc, char **argv)
 		return true;
 		return 0;
 	} else {
-		fprintf(stderr,
-			"\033[31mCould not create process: %s.\n\033[0m",
-			argv[1]);
 		return false;
 		return 1;
 	}

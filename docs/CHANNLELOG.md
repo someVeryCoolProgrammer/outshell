@@ -1,3 +1,9 @@
+# 28/11/'26 1.0.9
+
+Fixed bugs:
+- Colour leak when executable is not found
+- Normal commands not executing
+
 # 21/11/'26 1.0.8
 
 - Fixed outshell not compiling on unix based operating systems.
