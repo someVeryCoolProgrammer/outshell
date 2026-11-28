@@ -1,5 +1,5 @@
-#include "../include/utils/prompt.h"
-#include "../include/utils/getCurrentDir.h"
+#include "utils/prompt.h"
+#include "utils/getCurrentDir.h"
 #include <stdio.h>
 
 #ifdef _WIN32
