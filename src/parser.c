@@ -3,9 +3,9 @@
 #include <string.h>
 
 #include "commands.h"
+#include "launchProgram/launch.h"
 #include "parser.h"
 #include "token.h"
-#include "launchProgram/launch.h"
 #include "utils/prompt.h"
 
 typedef struct
@@ -41,7 +41,7 @@ parser(void)
 		userInput[strlen(userInput) - 1] = '\0';
 
 		int amountOfTokens = token(userInput, tokens);
-	
+
 		bool isFound = false;
 
 		bool program = launch(amountOfTokens, tokens);
