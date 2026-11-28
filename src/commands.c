@@ -129,3 +129,15 @@ setEnv(int argc, char **argv)
 	}
 	return 0;
 }
+
+int
+about(int argc, char **argv)
+{
+	// Print information about outshell.
+
+	printf("outshell is a free and open-source shell that is avaiable for "
+	       "both windows and unix based operating systems. It is under the "
+	       "MIT license.\nCopyright someVeryCoolProgrammer 2026 -.\nRepository: "
+	       "https://github.com/someVeryCoolProgrammer/outshell\n");
+	return 0;
+}

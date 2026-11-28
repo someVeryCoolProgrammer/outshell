@@ -25,8 +25,9 @@ parser(void)
 
 	char userInput[BUFFER];
 
-	commands cmds[] = {{"pwd", pwd},   {"help", help},   {"cd", cd},
-			   {"echo", echo}, {"clear", clear}, {"env", setEnv}};
+	commands cmds[] = {{"pwd", pwd},    {"help", help},   {"cd", cd},
+			   {"echo", echo},  {"clear", clear}, {"env", setEnv},
+			   {"about", about}};
 
 	int sizeofCmds = sizeof(cmds) / sizeof(cmds[0]);
 
@@ -59,8 +60,8 @@ parser(void)
 		if (launch(amountOfTokens, tokens) == true) {
 			launch(amountOfTokens, tokens);
 			isFound = true;
-		} 
-		
+		}
+
 		if (isFound == false) {
 			// \033[31m Colours input red
 			printf("\033[31m'%s' was not found. Type: 'help' for "

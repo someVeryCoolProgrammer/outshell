@@ -7,5 +7,6 @@ int cd (int argc, char **argv);
 int echo (int argc, char **argv);
 int clear (int argc, char **argv);
 int setEnv (int argc, char **argv);
+int about (int argc, char **argv);
 
 #endif
