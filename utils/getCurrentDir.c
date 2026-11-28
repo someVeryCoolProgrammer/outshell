@@ -1,4 +1,4 @@
-#include "../include/utils/getCurrentDir.h"
+#include "utils/getCurrentDir.h"
 #include <stdio.h>
 #include <string.h>
 

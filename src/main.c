@@ -1,9 +1,9 @@
-#include "../include/parser.h"
+#include "parser.h"
 
 int
-main()
+main(void)
 {
-	// Entery point for outshell.
+	// outshell's entry point. 
 	parser();
 
 	return 0;

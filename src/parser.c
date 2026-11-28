@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../include/commands.h"
-#include "../include/parser.h"
-#include "../include/token.h"
-#include "../include/utils/prompt.h"
+#include "commands.h"
+#include "parser.h"
+#include "token.h"
+#include "launchProgram/launch.h"
+#include "utils/prompt.h"
 
 typedef struct
 {
@@ -40,8 +41,17 @@ parser(void)
 		userInput[strlen(userInput) - 1] = '\0';
 
 		int amountOfTokens = token(userInput, tokens);
-
+	
 		bool isFound = false;
+
+		bool program = launch(amountOfTokens, tokens);
+
+		if (program == true) {
+			launch(amountOfTokens, tokens);
+			isFound = true;
+		} else {
+			isFound = false;
+		}
 
 		if (strcmp("exit", userInput) == 0) {
 			isFound = true;

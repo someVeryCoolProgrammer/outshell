@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../include/token.h"
+#include "token.h"
 
 int
 token(char *userInput, char *tokens[])

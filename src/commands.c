@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/commands.h"
-#include "../include/token.h"
-#include "../include/utils/getCurrentDir.h"
-#include "../include/utils/prompt.h"
+#include "commands.h"
+#include "token.h"
+#include "utils/getCurrentDir.h"
+#include "utils/prompt.h"
 
 #ifdef _WIN32
 #include <windows.h>
